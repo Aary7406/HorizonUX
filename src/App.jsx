@@ -3,17 +3,30 @@ import ContribPage from './components/contribpage' // Import with PascalCase
 import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/home' // Assuming home.jsx exports Home
-import { Routes, Route, useLocation } from 'react-router-dom' // Only Routes and Route needed here
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom' // Only Routes and Route needed here
 import DevicesPage from './components/DevicesPage'; // Import the new DevicesPage
 import { AnimatePresence,motion,useScroll } from 'framer-motion'
 import Inner from './components/layout/Inner';
+import { useEffect } from 'react'
 
 function App() {
+  function RedirectHandler() {
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+      const redirect = new URLSearchParams(window.location.search).get('redirect');
+      if (redirect) {
+        navigate(redirect, { replace: true });
+      }
+    },[navigate]);
+    return null;
+  }
   const location = useLocation();
   return (
     <>
       {/* BrowserRouter is in main.jsx, so no need for <Router> or <BrowserRouter> here */}
       <AnimatePresence mode="wait">
+        <RedirectHandler />
         <Inner key={location.pathname}>
       
       <Routes location={location} >
