@@ -1,0 +1,13 @@
+.inner{
+    background-color: black;
+    .slide{
+        position: fixed;
+        top: 0;
+        left: 0;
+        
+        background: linear-gradient(144deg, #7B3AB4 8%, #D16BAA 19%, #E02D2D 35%, #DEC590 60%, #36ED1A 78%, #FF9500 99%);
+        /* background-color: grey; */
+        width: 100vw;
+        height: 100vh;
+    }
+}

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+DK+Loopet:wght@100..400&family=Playwrite+DK+Uloopet:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.body {
+  background: radial-gradient(circle at center, #7B3AB4 8%, #D16BAA 19%, #E02D2D 35%, #DEC590 60%, #36ED1A 78%, #FF9500 99%);
+  background-size: 400% 400%;
+  animation: bg 12s ease-in-out infinite;
+  backdrop-filter: blur(100px);
+  min-height: 100vh;
+  overflow: hidden;
+}
+@keyframes bg {
+  0% {
+    background-position: 0% 50%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+  }
+  15% {
+    background-position: 70% 10%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+
+  }
+  30% {
+    background-position: 100% 60%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+  }
+  45% {
+    background-position: 40% 100%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+  }
+  60% {
+    background-position: 10% 70%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+  }
+  80% {
+    background-position: 30% 0%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+  }
+  100% {
+    background-position: 0% 50%;
+    backdrop-filter: blur(100px);
+    margin: 0;
+
+  }
+}
+
+.project{
+  font-weight: bold;
+  font-size: xxx-large;
+}
+.intro{
+  color: white;
+  padding: 5px;
+  font-size: large;
+}
+.disclaimer{
+  font-weight: 800;
+  font-size: medium;
+  text-decoration: underline;
+}
+.App{
+  font-family: 'Ancizar Sans', 'sans-serif';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  margin-top: 20vh;
+  /* padding-top: 35vh; */
+  
+}
+.title{
+  backdrop-filter: blur(100px);
+  background-color: rgba(99, 99, 99, 0.1);
+  padding: 50px;
+  border: 5px solid rgba(255, 242, 242, 0.33);
+  border-radius: 999px;
+  box-shadow:
+    0px 2.8px 2.2px rgba(0, 0, 0, 0.02),  /* Very subtle, close shadow */
+    0px 6.7px 5.3px rgba(0, 0, 0, 0.028), /* Slightly larger, still subtle */
+    0px 12.5px 10px rgba(0, 0, 0, 0.035), /*Main shadow layer*/
+    0px 22.3px 17.9px rgba(0, 0, 0, 0.042),/*More diffused shadow*/
+    0px 41.8px 33.4px rgba(0, 0, 0, 0.05), /*Farthest, softest shadow*/
+    0px 100px 80px rgba(0, 0, 0, 0.07),
+    inset 0px 2.8px 2.2px rgba(0, 0, 0, 0.02),  /* Very subtle, close shadow */
+    inset 0px 6.7px 5.3px rgba(0, 0, 0, 0.028), /* Slightly larger, still subtle */
+    inset 0px 12.5px 10px rgba(0, 0, 0, 0.035), /*Main shadow layer*/
+    inset 0px 22.3px 17.9px rgba(0, 0, 0, 0.042),/*More diffused shadow*/
+    inset 0px 41.8px 33.4px rgba(0, 0, 0, 0.05), /*Farthest, softest shadow*/
+    inset 0px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.join{
+  color: #000000;
+  background-color: rgba(220, 220, 240, 0.85);
+  font-size: large;
+  font-weight: bold;
+  font-family: 'Playwrite DK Uloopet', cursive, 'sans-serif';
+  padding: 15px;
+  margin: 20px;
+  border: 1px solid rgba(255, 200, 200, 0.9);
+  border-radius: 100px;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.join:hover{
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: scale(1.15);
+}

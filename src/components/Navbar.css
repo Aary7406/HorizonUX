@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+.container{
+    position: sticky;
+    /* border:1px solid black; */
+    max-width: 90vw;
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.12); /* Softer, more diffused shadow */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.logo{
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: x-large;
+    font-family: 'Roboto Mono',monospace,'sans-serif';
+}
+ul{
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    gap: 50px;
+    
+}
+li{
+    position: relative; /* Required for positioning the ::after pseudo-element */
+    overflow: hidden;   /* Ensures the ::after pseudo-element is clipped to the pill's rounded corners */
+    padding: 6px 15px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: rgb(0, 0, 0);
+    cursor: pointer; /* Changes the mouse cursor to a pointer on hover */
+    transition: transform 0.1s ease-in-out; /* Smooth transition for :active state's transform */
+    z-index: 0; /* Establish stacking context for pseudo-elements */
+    font-family: 'Roboto Mono',monospace,'sans-serif';
+}
+
+li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit; /* Match the parent li's pill shape */
+    background-color: rgb(255, 255, 255); /* Solid background color for hover state */
+    transform: scaleX(0); /* Initially scaled out (zero width) */
+    transform-origin: left; /* Animation will originate from the left */
+    transition: transform .4s cubic-bezier(0.075, 0.82, 0.165, 1); /* Your desired long transition */
+    z-index: -1; /* Position this layer behind the li's content (text) */
+}
+
+li:hover {
+    /* The background change is now handled by li::before */
+}
+li:hover::before {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+li:active {
+    background-color: rgba(255, 255, 255, 0.45); /* Even more opaque when pressed */
+    transform: scale(0.90); /* Slight shrink effect when pressed */
+}
+
+li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit; /* Inherits the border-radius from the li, keeping the pill shape */
+
+    /* SVG noise pattern. Adjust baseFrequency for grain size (higher = finer). */
+    /* The SVG creates a noise texture that will be tiled across the element. */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+    opacity: 0.07; /* Adjust for desired grain intensity (e.g., 0.05 to 0.15) */
+ /* Allows mouse events (like clicks) to pass through to the li element itself */
+}
