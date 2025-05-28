@@ -1,1 +1,0 @@
-The images in this folder are sourced from contributors' GitHub or Telegram profiles. If you prefer a different image to represent you, please reach out to request a change.
