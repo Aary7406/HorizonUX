@@ -1,6 +1,6 @@
 .main{
     /* background-color: var(--contrib-page-bg,black); */
-    background: url(./images/blur.jpg);
+    background: url(/images/blur.jpg);
     min-height: 500vh;
     background-size: cover;
     /* background-position: center center; */
