@@ -1,13 +1,10 @@
-// useState import is not used, can be removed for cleanliness
-import ContribPage from './components/contribpage' // Import with PascalCase
+import ContribPage from './components/contribpage'; // Assuming PascalCase filename: ContribPage.jsx
 import './App.css'
-import Navbar from './components/Navbar'
-import Home from './components/home' // Assuming home.jsx exports Home
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom' // Only Routes and Route needed here
+import Home from './components/home'; // Assuming PascalCase filename: Home.jsx
+import { Routes, Route, useLocation } from 'react-router-dom';
 import DevicesPage from './components/DevicesPage'; // Import the new DevicesPage
-import { AnimatePresence,motion,useScroll } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion';
 import Inner from './components/layout/Inner';
-import { useEffect } from 'react'
 
 function App() {
   const location = useLocation();
