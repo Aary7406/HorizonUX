@@ -1,86 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-.container{
-    position: sticky;
-    /* border:1px solid black; */
-    max-width: 90vw;
+.container {
     display: flex;
-    margin: auto;
-    margin-top: 10px;
     justify-content: space-between;
     align-items: center;
-    border-radius: 50px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.12); /* Softer, more diffused shadow */
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 10px 40px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(120px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 100;
+    top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 9999px;
 }
-.logo{
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: x-large;
-    font-family: 'Roboto Mono',monospace,'sans-serif';
+
+.logo-link {
+    text-decoration: none !important;   
+    color: inherit !important;
 }
-ul{
+
+.logo {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg, #fff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.15);
+}
+
+.list ul {
     display: flex;
     list-style: none;
-    padding: 10px;
-    gap: 50px;
-    
+    gap: clamp(20px, 5vw, 40px);
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
-li{
-    position: relative; /* Required for positioning the ::after pseudo-element */
-    overflow: hidden;   /* Ensures the ::after pseudo-element is clipped to the pill's rounded corners */
-    padding: 6px 15px;
+
+.list li {
+    color: white;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 16px;
     border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: rgb(0, 0, 0);
-    cursor: pointer; /* Changes the mouse cursor to a pointer on hover */
-    transition: transform 0.1s ease-in-out; /* Smooth transition for :active state's transform */
-    z-index: 0; /* Establish stacking context for pseudo-elements */
-    font-family: 'Roboto Mono',monospace,'sans-serif';
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-li::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit; /* Match the parent li's pill shape */
-    background-color: rgb(255, 255, 255); /* Solid background color for hover state */
-    transform: scaleX(0); /* Initially scaled out (zero width) */
-    transform-origin: left; /* Animation will originate from the left */
-    transition: transform .4s cubic-bezier(0.075, 0.82, 0.165, 1); /* Your desired long transition */
-    z-index: -1; /* Position this layer behind the li's content (text) */
+.list li:hover {
+    background: rgba(255, 248, 248, 0.322);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    color: black;
 }
 
-li:hover {
-    /* The background change is now handled by li::before */
-}
-li:hover::before {
-    transform: scaleX(1); /* Scale to full width on hover */
-}
-li:active {
-    background-color: rgba(255, 255, 255, 0.45); /* Even more opaque when pressed */
-    transform: scale(0.90); /* Slight shrink effect when pressed */
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px 20px;
+    }
+    
+    .list ul {
+        gap: 15px;
+    }
+    
+    .list li {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
 }
 
-li::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit; /* Inherits the border-radius from the li, keeping the pill shape */
-
-    /* SVG noise pattern. Adjust baseFrequency for grain size (higher = finer). */
-    /* The SVG creates a noise texture that will be tiled across the element. */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-
-    opacity: 0.07; /* Adjust for desired grain intensity (e.g., 0.05 to 0.15) */
- /* Allows mouse events (like clicks) to pass through to the li element itself */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .list {
+        order: 2;
+        width: 100%;
+    }
+    
+    .list ul {
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .list li {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
 }

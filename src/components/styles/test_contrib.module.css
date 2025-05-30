@@ -1,0 +1,76 @@
+/* filepath: src/components/styles/test_contrib.module.css */
+
+/* Test: Default .main and .back styles */
+.main::after {
+    content: "main-default";
+    display: none;
+}
+.back::after {
+    content: "back-default";
+    display: none;
+}
+
+/* Test: Tablet styles (max-width: 768px) */
+@media (max-width: 768px) {
+    .main::after {
+        content: "main-tablet";
+        display: block;
+        color: lime;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 9999;
+    }
+    .back::after {
+        content: "back-tablet";
+        display: block;
+        color: lime;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 9999;
+    }
+}
+
+/* Test: Mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+    .main::after {
+        content: "main-mobile";
+        display: block;
+        color: orange;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 9999;
+    }
+    .back::after {
+        content: "back-mobile";
+        display: block;
+        color: orange;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 9999;
+    }
+}
+
+/* Test: SVG hover scaling */
+.back svg:hover::after {
+    content: "svg-hover";
+    display: block;
+    color: red;
+    font-size: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.5);
+    z-index: 9999;
+}

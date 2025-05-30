@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Dosis:wght@200..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+DK+Loopet:wght@100..400&family=Playwrite+DK+Uloopet:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Dosis:wght@200..800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Dosis:wght@200..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Patrick+Hand&family=Playwrite+DK+Loopet:wght@100..400&family=Playwrite+DK+Uloopet:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
-.cardcont{
+.cardcont {
     top: 0;
     height: 100vh;
     display: flex;
@@ -10,58 +8,149 @@
     position: sticky;
     align-items: center;
     color: white;
-    .card{
-        /* backdrop-filter: blur(30px) saturate(180%); */ /* You can adjust saturation if needed */
-        backdrop-filter: blur(25px) saturate(100%); /* Slightly reduced blur and saturation for a tighter feel */
-        /* Increased opacity for the background color to reduce glow-through */
-        background-color: rgba(0, 0, 0, 0.25); /* Was 0.1, try 0.2 to 0.35 */
-        /* Adding a subtle border to help define the edges */
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 20px;
-        width: 1000px;
-        height: 500px;
-        box-shadow:
-    0px 2.8px 2.2px rgba(0, 0, 0, 0.02),  /* Very subtle, close shadow */
-    0px 6.7px 5.3px rgba(0, 0, 0, 0.028), /* Slightly larger, still subtle */
-    0px 12.5px 10px rgba(0, 0, 0, 0.035), /*Main shadow layer*/
-    0px 22.3px 17.9px rgba(0, 0, 0, 0.042),/*More diffused shadow*/
-    0px 41.8px 33.4px rgba(0, 0, 0, 0.05), /*Farthest, softest shadow*/
-    0px 100px 80px rgba(0, 0, 0, 0.07);
-    }
+    padding: 0 20px;
+    box-sizing: border-box;
 }
-.name{
-    padding-top: 10px;
+
+.cardcont .card {
+    backdrop-filter: blur(25px) saturate(120%);
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    width: min(1000px, 90vw);
+    height: auto;
+    min-height: 500px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
     font-family: 'Patrick Hand', cursive;
     text-align: center;
-    font-size: xxx-large;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin: 0 0 30px 0;
+    color: white;
 }
 
-.pfp{
+.pfp {
     display: flex;
     justify-content: space-between;
-}
-img{
-    margin-right: 50px;
-    border-radius: 50px;
-    /* padding-right: 50px; */
-    margin-top: 40px;
-    width: 50vh;
-    height: 50vh;
-    object-fit: cover;
+    align-items: center;
+    flex: 1;
+    gap: 40px;
 }
 
-.desc{
+.desc {
     font-family: 'Dosis', sans-serif;
-    font-size: 3em;
+    font-size: clamp(1.25rem, 3.5vw, 2.5rem);
     font-weight: 500;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:90px;
-    margin: 10px;
+    flex: 1;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
 }
-.img{
+
+.imgcont {
+    flex-shrink: 0;
+}
+
+.img img {
+    width: clamp(200px, 25vw, 350px);
+    height: clamp(200px, 25vw, 350px);
     object-fit: cover;
-;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) {
+    .cardcont .card {
+        width: 95vw;
+        padding: 30px;
+        min-height: 450px;
+    }
+    
+    .pfp {
+        gap: 30px;
+    }
+    
+    .img img {
+        width: clamp(180px, 22vw, 280px);
+        height: clamp(180px, 22vw, 280px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .cardcont {
+        padding: 0 10px;
+    }
+    
+    .cardcont .card {
+        width: 95vw;
+        padding: 24px;
+        min-height: auto;
+    }
+    
+    .pfp {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+    
+    .desc {
+        order: 2;
+        padding: 0;
+    }
+    
+    .imgcont {
+        order: 1;
+        align-self: center;
+    }
+    
+    .img img {
+        width: clamp(150px, 40vw, 250px);
+        height: clamp(150px, 40vw, 250px);
+        border-radius: 16px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .cardcont .card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    
+    .pfp {
+        gap: 20px;
+    }
+    
+    .img img {
+        width: clamp(120px, 35vw, 200px);
+        height: clamp(120px, 35vw, 200px);
+        border-radius: 12px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    .cardcont .card {
+        padding: 16px;
+        width: 98vw;
+    }
+    
+    .name {
+        margin-bottom: 20px;
+    }
+    
+    .pfp {
+        gap: 16px;
+    }
 }
